@@ -2,9 +2,12 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SocialApp.Models;
 
 namespace SocialApp
 {
@@ -13,6 +16,9 @@ namespace SocialApp
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+
+            //SqlConnection con = new SqlConnection();
+            //con.Open();
         }
 
         public IConfiguration Configuration { get; }
@@ -26,6 +32,9 @@ namespace SocialApp
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+            services.AddDbContext<UserDetailContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

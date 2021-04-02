@@ -13,15 +13,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 5.0.x
-    env:
-      HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-    APP_NAME: ${{ 'social-network-ip' }}
+    - name: Build and deploy the docker image
+      env:
+        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        APP_NAME: ${{ 'social-network-ip' }}
 
-    run: |
-    docker login --username=_ --pasword=$HEROKU_API_KEY registry.heroku.com
-    heroku container:push web -a $APP_NAME
-    heroku container:release web -a $APP_NAME
+      run: |
+        docker login --username=_ --password=$HEROKU_API_KEY registry.heroku.com
+        heroku container:push web -a $APP_NAME
+        heroku container:release web -a $APP_NAME

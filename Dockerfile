@@ -24,4 +24,4 @@ RUN dotnet publish "SocialApp.csproj" -c Release -o /app/publish
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "SocialApp.dll"]
+CMD ASPNETCORE_URLS=http://*:$PORT dotnet SocialApp.dll

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -30,6 +30,30 @@
 
   <ItemGroup>
     <!-- Don't publish the SPA source files, but do show them in the project files list -->
+    <Compile Remove="Commons\**" />
+    <Compile Remove="ConsoleAppTest\**" />
+    <Compile Remove="Controllers\**" />
+    <Compile Remove="DatabaseManager\**" />
+    <Compile Remove="Interfaces\**" />
+    <Compile Remove="Models\**" />
+    <Content Remove="$(SpaRoot)**" />
+    <Content Remove="Commons\**" />
+    <Content Remove="ConsoleAppTest\**" />
+    <Content Remove="Controllers\**" />
+    <Content Remove="DatabaseManager\**" />
+    <Content Remove="Interfaces\**" />
+    <Content Remove="Models\**" />
+    <EmbeddedResource Remove="Commons\**" />
+    <EmbeddedResource Remove="ConsoleAppTest\**" />
+    <EmbeddedResource Remove="Controllers\**" />
+    <EmbeddedResource Remove="DatabaseManager\**" />
+    <EmbeddedResource Remove="Interfaces\**" />
+    <EmbeddedResource Remove="Models\**" />
+    <None Remove="$(SpaRoot)**" />
+    <None Remove="Commons\**" />
+    <None Remove="ConsoleAppTest\**" />
+    <None Remove="Controllers\**" />
+    <None Remove="DatabaseManager\**" />
     <Compile Remove="Controllers\**" />
     <Compile Remove="Interfaces\**" />
     <Compile Remove="Models\**" />

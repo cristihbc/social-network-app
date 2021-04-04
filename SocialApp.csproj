@@ -54,7 +54,7 @@
     <None Remove="ConsoleAppTest\**" />
     <None Remove="Controllers\**" />
     <None Remove="DatabaseManager\**" />
-    <Compile Remove="Controllers\**" />
+    <!--<Compile Remove="Controllers\**" />
     <Compile Remove="Interfaces\**" />
     <Compile Remove="Models\**" />
     <Content Remove="$(SpaRoot)**" />
@@ -67,7 +67,7 @@
     <None Remove="$(SpaRoot)**" />
     <None Remove="Controllers\**" />
     <None Remove="Interfaces\**" />
-    <None Remove="Models\**" />
+    <None Remove="Models\**" />-->
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
   </ItemGroup>
 

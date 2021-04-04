@@ -1,4 +1,4 @@
-name: .NET
+name: dotnet integration
 
 on:
   push:

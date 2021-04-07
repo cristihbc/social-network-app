@@ -3,7 +3,7 @@
  *  File:        UserController.cs                                        *
  *  Copyright:   (c) 2021, Cojocaru Daniel-Alexandru                      *
  *  E-mail:      alex.cojocaru73@gmail.com                                *
- *  Description: Describes the REST API routes for the user data processing.*
+ *  Description: Describes the REST API routes for the user data.         *
  *                                                                        *
  *  This program is free software; you can redistribute it and/or modify  *
  *  it under the terms of the GNU General Public License as published by  *
@@ -14,13 +14,85 @@
  *                                                                        *
  **************************************************************************/
 
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Services;
+using Models;
+using System;
+using System.Collections.Generic;
 
 namespace Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    class UserController
+    public class UserController : ControllerBase
     {
+        private static UserService _userService = new UserService();
+
+        /// <summary>
+        /// Get method
+        /// </summary>
+        /// <returns>
+        /// An IActionResult object containing the response code and a list of users <para/>
+        /// Status code - OK, if there are users<para/>
+        /// Status code - NO CONTENT, if the there are no users
+        /// </returns>
+        [HttpGet]
+        public IActionResult GetUsers()
+        {
+            List<UserEntity> users = _userService.GetUsers();
+            
+            if (users.Count != 0)
+            {
+                return Ok(users);
+            }
+
+            return NoContent();
+        }
+
+        /// <summary>
+        /// Gets one user
+        /// </summary>
+        /// <param name="username">the user id</param>
+        /// <returns>
+        /// Status code - OK, if the user was found
+        /// Status code - NOT FOUND, if the user wasn't found
+        /// </returns>
+        [HttpGet("{username}")]
+        public IActionResult GetUser(string username)
+        {
+            UserEntity user = _userService.GetUser(username);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(user);
+        }
+
+        /// <summary>
+        /// Creates an user
+        /// </summary>
+        /// <param name="user">the user, taken from the body of the request</param>
+        /// <returns>Status code - CREATED</returns>
+        [HttpPost]
+        public IActionResult PostUser([FromBody] UserEntity user)
+        {
+            try
+            {
+                if (user == null)
+                {
+                    return BadRequest();
+                }
+
+                _userService.CreateUser(user);
+                return CreatedAtAction(nameof(GetUser), new { user = user }, user);
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "Error");
+            }
+        }
     }
 }

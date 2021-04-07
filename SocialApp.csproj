@@ -36,6 +36,7 @@
     <Compile Remove="DatabaseManager\**" />
     <Compile Remove="Interfaces\**" />
     <Compile Remove="Models\**" />
+    <Compile Remove="Services\**" />
     <Content Remove="$(SpaRoot)**" />
     <Content Remove="Commons\**" />
     <Content Remove="ConsoleAppTest\**" />
@@ -43,17 +44,22 @@
     <Content Remove="DatabaseManager\**" />
     <Content Remove="Interfaces\**" />
     <Content Remove="Models\**" />
+    <Content Remove="Services\**" />
     <EmbeddedResource Remove="Commons\**" />
     <EmbeddedResource Remove="ConsoleAppTest\**" />
     <EmbeddedResource Remove="Controllers\**" />
     <EmbeddedResource Remove="DatabaseManager\**" />
     <EmbeddedResource Remove="Interfaces\**" />
     <EmbeddedResource Remove="Models\**" />
+    <EmbeddedResource Remove="Services\**" />
     <None Remove="$(SpaRoot)**" />
     <None Remove="Commons\**" />
     <None Remove="ConsoleAppTest\**" />
     <None Remove="Controllers\**" />
     <None Remove="DatabaseManager\**" />
+    <None Remove="Interfaces\**" />
+    <None Remove="Models\**" />
+    <None Remove="Services\**" />
     <!--<Compile Remove="Controllers\**" />
     <Compile Remove="Interfaces\**" />
     <Compile Remove="Models\**" />
@@ -75,6 +81,7 @@
     <ProjectReference Include="Controllers\Controllers.csproj" />
     <ProjectReference Include="Interfaces\Interfaces.csproj" />
     <ProjectReference Include="Models\Models.csproj" />
+    <ProjectReference Include="Services\Services.csproj" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

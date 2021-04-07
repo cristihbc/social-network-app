@@ -94,5 +94,27 @@ namespace Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, "Error");
             }
         }
+
+        [HttpPut("{username}")]
+        public IActionResult UpdateUser(string username, [FromBody] UserEntity user)
+        {
+            if (_userService.UpdateUser(username, user))
+            {
+                return Ok();
+            }
+
+            return NotFound();
+        }
+
+        [HttpDelete("{username}")]
+        public IActionResult DeleteUser(string username)
+        {
+            if (_userService.DeleteUser(username))
+            {
+                return Ok();
+            }
+
+            return NotFound();
+        }
     }
 }

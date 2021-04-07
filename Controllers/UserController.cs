@@ -14,11 +14,9 @@
  *                                                                        *
  **************************************************************************/
 
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Services;
 using Models;
-using System;
 using System.Collections.Generic;
 
 namespace Controllers
@@ -79,20 +77,13 @@ namespace Controllers
         [HttpPost]
         public IActionResult PostUser([FromBody] UserEntity user)
         {
-            try
+            if (user == null)
             {
-                if (user == null)
-                {
-                    return BadRequest();
-                }
+                return BadRequest();
+            }
 
-                _userService.CreateUser(user);
-                return CreatedAtAction(nameof(GetUser), new { user = user }, user);
-            }
-            catch (Exception)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, "Error");
-            }
+            _userService.CreateUser(user);
+            return CreatedAtAction(nameof(GetUser), new { user = user }, user);
         }
 
         [HttpPut("{username}")]

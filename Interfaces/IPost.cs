@@ -60,7 +60,7 @@ namespace Interfaces
         /// <param name="id">the id of the post</param>
         /// <param name="username"></param>
         /// <returns>true if the post was deleted, false otherwise</returns>
-        bool DeleteComment(uint id, string username);
+        bool DeletePost(uint id, string username);
 
         /// <summary>
         /// Checks if a post exists
@@ -77,3 +77,4 @@ namespace Interfaces
         /// <returns>true if the user has rights, false otherwise</returns>
         bool HasRights(uint id, string username);
     }
+}

@@ -24,9 +24,6 @@ namespace Models
         [JsonProperty("id")]
         public uint Id { get; set; }
 
-        [JsonProperty("postID")]
-        public int PostId { get; set; }
-
         [JsonProperty("username")]
         public string Username { get; set; }
 

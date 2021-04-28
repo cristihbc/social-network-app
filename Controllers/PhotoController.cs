@@ -48,7 +48,7 @@ namespace Controllers
         [HttpPost]
         public IActionResult PostPhoto([FromBody] PhotoEntity photo)
         {
-            if ((photo == null) || (_userService.GetUser(photo.Username) == null))
+            if (photo == null) 
             {
                 return BadRequest();
             }
@@ -60,7 +60,7 @@ namespace Controllers
         [HttpPut("{id}")]
         public IActionResult UpdatePhoto(uint id, [FromBody] PhotoEntity photo)
         {
-            if (_userService.GetUser(photo.Username) == null)
+            if (photo == null)
             {
                 return BadRequest();
             }

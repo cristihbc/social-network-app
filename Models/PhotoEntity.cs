@@ -35,6 +35,6 @@ namespace Models
 
         [JsonProperty("phototype")]
         public string PhotoType { get; set; }
-
+        public string Date { get; set; }
     }
 }

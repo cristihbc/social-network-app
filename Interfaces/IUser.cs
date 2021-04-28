@@ -33,7 +33,7 @@ namespace Interfaces
         /// </summary>
         /// <returns>the list of requested users</returns>
         List<UserEntity> GetUsers();
-        
+
         /// <summary>
         /// Creates an user
         /// </summary>

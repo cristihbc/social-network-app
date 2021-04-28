@@ -1,6 +1,6 @@
 ﻿/**************************************************************************
  *                                                                        *
- *  File:        CommentEntity.cs                                         *
+ *  File:        PhotoEntity.cs                                         *
  *  Copyright:   (c) 2021, Balan Alexandru-Eduard                         *
  *  E-mail:      edibalan59@gmail.com                                     *
  *  Description: The description of a photo entity sent inside a request* 

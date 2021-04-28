@@ -3,7 +3,7 @@
  *  File:        CommentEntity.cs                                         *
  *  Copyright:   (c) 2021, Balan Alexandru-Eduard                         *
  *  E-mail:      edibalan59@gmail.com                                     *
- *  Description: The description of a comment entity sent inside a request* 
+ *  Description: The description of a photo entity sent inside a request* 
  *               body.                                                    *
  *                                                                        *
  *  This program is free software; you can redistribute it and/or modify  *

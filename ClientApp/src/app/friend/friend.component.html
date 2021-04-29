@@ -1,1 +1,30 @@
 <p>friend works!</p>
+
+<p *ngIf="!friends">Loading...</p>
+<div class="searchButton">
+    <input type="text" placeholder="Search..">
+</div>
+<div>
+    <article class="section">
+        <h2>Friends</h2>
+    </article>
+<br/>
+<br/>
+<br/>
+    <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="friends">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Friend Username</th>
+                <th>Friendship Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let friend of friends">
+                <td>{{ friend.username }}</td>
+                <td>{{ friend.friendUsername }}</td>
+                <td>{{ friend.friendshipDate }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

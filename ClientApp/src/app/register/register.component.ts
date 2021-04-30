@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -11,7 +12,11 @@ export class RegisterComponent implements OnInit {
   form: FormGroup;
   url: string;
 
-  constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string) { 
+  constructor(
+    private http: HttpClient, 
+    private router: Router,
+    @Inject('BASE_URL') baseUrl: string
+    ) { 
     this.form = new FormGroup({
       username: new FormControl(),
       firstName: new FormControl(),
@@ -32,6 +37,7 @@ export class RegisterComponent implements OnInit {
 
     this.http.post(this.url, data).subscribe((result) => {
       console.log(result);
+      this.router.navigate(["/user-data"]);
     });
   }
 

@@ -3,8 +3,8 @@
     <div class="d-flex align-items-center justify-content-center" style="height: 350px">
       <div class="p-2 bd-highlight col-example">
         <h1><strong>Welcome</strong></h1>
-        <button type="button" class="btn btn-primary btn-block">Register</button>
-        <button type="button" class="btn btn-success btn-block">Login</button>
+        <button (click)="redirect('register')" type="button" class="btn btn-primary btn-block">Register</button>
+        <button (click)="redirect('login')" type="button" class="btn btn-success btn-block">Login</button>
       </div>
     </div>
   </div>

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container"><!-- <div *ngIf="isLogged" class="container"> -->
   <div class="main-body">
     <div class="row gutters-sm">
       <div class="col-md-4 mb-3">
@@ -12,7 +12,7 @@
                 width="150"
               />
               <div class="mt-3">
-                <h4>{{ firstName }} {{ lastName }}</h4>
+                <h4>{{ user.firstName }} {{ user.lastName }}</h4>
                 <p class="text-secondary mb-1">Full Stack Developer</p>
               </div>
             </div>
@@ -53,103 +53,52 @@
               <div class="col-sm-3">
                 <h6 class="mb-0">Username</h6>
               </div>
-              <div class="col-sm-9 text-secondary">{{ username }}</div>
+              <div class="col-sm-9 text-secondary">{{ user.username }}</div>
             </div>
             <hr />
             <div class="row">
               <div class="col-sm-3">
                 <h6 class="mb-0">First Name</h6>
               </div>
-              <div class="col-sm-9 text-secondary">{{ firstName }}</div>
+              <div class="col-sm-9 text-secondary">{{ user.firstName }}</div>
             </div>
             <hr />
             <div class="row">
                 <div class="col-sm-3">
                   <h6 class="mb-0">Last Name</h6>
                 </div>
-                <div class="col-sm-9 text-secondary">{{ lastName }}</div>
+                <div class="col-sm-9 text-secondary">{{ user.lastName }}</div>
               </div>
               <hr />
             <div class="row">
               <div class="col-sm-3">
                 <h6 class="mb-0">Email</h6>
               </div>
-              <div class="col-sm-9 text-secondary">{{ email }}</div>
+              <div class="col-sm-9 text-secondary">{{ user.email }}</div>
             </div>
             <hr />
             <div class="row">
               <div class="col-sm-3">
                 <h6 class="mb-0">Phone</h6>
               </div>
-              <div class="col-sm-9 text-secondary">{{ phone }}</div>
+              <div class="col-sm-9 text-secondary">{{ user.phone }}</div>
             </div>
           </div>
         </div>
-        <div class="row gutters-sm">
-          <div class="col-sm-6 mb-3">
-            <div class="card h-100">
-              <div class="card-body">
-                <h6 class="d-flex align-items-center mb-3">
-                  <i class="material-icons text-info mr-2">assignment</i>Project
-                  Status
-                </h6>
-                <small>Web Design</small>
-                <div class="progress mb-3" style="height: 5px">
-                  <div
-                    class="progress-bar bg-primary"
-                    role="progressbar"
-                    style="width: 80%"
-                    aria-valuenow="80"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  ></div>
-                </div>
-                <small>Website Markup</small>
-                <div class="progress mb-3" style="height: 5px">
-                  <div
-                    class="progress-bar bg-primary"
-                    role="progressbar"
-                    style="width: 72%"
-                    aria-valuenow="72"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  ></div>
-                </div>
-                <small>One Page</small>
-                <div class="progress mb-3" style="height: 5px">
-                  <div
-                    class="progress-bar bg-primary"
-                    role="progressbar"
-                    style="width: 89%"
-                    aria-valuenow="89"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  ></div>
-                </div>
-                <small>Mobile Template</small>
-                <div class="progress mb-3" style="height: 5px">
-                  <div
-                    class="progress-bar bg-primary"
-                    role="progressbar"
-                    style="width: 55%"
-                    aria-valuenow="55"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  ></div>
-                </div>
-                <small>Backend API</small>
-                <div class="progress mb-3" style="height: 5px">
-                  <div
-                    class="progress-bar bg-primary"
-                    role="progressbar"
-                    style="width: 66%"
-                    aria-valuenow="66"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  ></div>
-                </div>
+
+        <!-- friend list -->
+        <div id="friendList" class="row">
+          <div *ngFor="let friend of friends" class="col-lg-3"> <!-- this div has to contain the for loop -->
+              <div class="text-center card-box">
+                  <div class="member-card pt-2 pb-2">
+                    <div class="thumb-lg member-thumb mx-auto">
+                      <img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="rounded-circle img-thumbnail" alt="profile-image"></div>
+                    <div>
+                      <h6>Freddie J. Plourde</h6>
+                    </div>
+                    <button type="button" class="btn btn-primary mt-3 btn-rounded waves-effect w-md waves-light">Unfriend</button>
+                  </div>
               </div>
-            </div>
           </div>
         </div>
       </div>

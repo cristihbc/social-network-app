@@ -1,4 +1,4 @@
-<div class="container">
+<div *ngIf="user;else doesNotExist" class="container">
   <div class="main-body">
     <div class="row gutters-sm">
       <div class="col-md-4 mb-3">
@@ -64,7 +64,7 @@
                   <div class="member-card pt-2 pb-2">
                     <div class="thumb-lg member-thumb mx-auto">
                       <a href="{{url + 'profile/' + friend.username}}">
-                        <img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="rounded-circle img-thumbnail" alt="profile-image">
+                        <img src="https://bootdey.com/img/Content/avatar/avatar7.png" class="rounded-circle img-thumbnail" alt="profile-image">
                       </a>
                     </div>
                     <div>
@@ -79,3 +79,7 @@
     </div>
   </div>
 </div>
+
+<ng-template #doesNotExist>
+  <h2>The user does not exist</h2>
+</ng-template>

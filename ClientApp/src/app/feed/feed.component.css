@@ -103,3 +103,7 @@ body{
 .media-body {
     padding-left: 10px;
 }
+
+#commentButton {
+    margin-left: 10px;
+}

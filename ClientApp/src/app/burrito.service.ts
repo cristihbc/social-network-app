@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 export class BurritoService {
   private static isLogged: boolean;
   private static LOCAL_STORAGE_TAG: string; 
+  private static username: string;
 
   constructor() { 
     BurritoService.isLogged = false;
@@ -22,5 +23,13 @@ export class BurritoService {
 
   getLoggedTag() {
     return BurritoService.LOCAL_STORAGE_TAG;
+  }
+
+  getUsername() {
+    return BurritoService.username;
+  }
+
+  setUsername(username) {
+    BurritoService.username = username;
   }
 }

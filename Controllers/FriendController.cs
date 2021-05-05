@@ -27,25 +27,23 @@ namespace Controllers
 
     public class FriendController : ControllerBase
     {
-
         private static IFriend _friendService = new FriendService();
-        [HttpGet]
-
+        private static IUser _userService = new UserService();
 
         /// <summary>
-        /// Get method
+        /// Return the friendship between 2 users
         /// </summary>
         /// <returns>
-        /// An IActionResult object containing the response code and a list of friends <para/>
-        /// Status code - OK, if there are friends<para/>
-        /// Status code - NO CONTENT, if the there are no freinds
+        /// An IActionResult object containing the response code and the friendship<para/>
+        /// Status code - OK, if the friendship is valid<para/>
+        /// Status code - NO CONTENT, if the friendship does not exist
         /// </returns>
-        public IActionResult GetFriends()
+        [HttpGet]
+        public IActionResult GetFriendship(string username, string friendUsername)
         {
+            FriendEntity friends = _friendService.GetFriendship(username, friendUsername);
 
-            List<FriendEntity> friends = _friendService.GetFriends();
-
-            if (friends.Count != 0)
+            if (friends != null)
             {
                 return Ok(friends);
             }
@@ -55,75 +53,57 @@ namespace Controllers
         }
 
         /// <summary>
-        /// Gets one friend
+        /// Gets the user's friends
         /// </summary>
-        /// <param name="friendUsername">the friend id</param>
+        /// <param name="username">the user's name</param>
         /// <returns>
-        /// Status code - OK, if the friend was found
-        /// Status code - NOT FOUND, if the friend wasn't found
+        /// Status code - OK, if the user was found
+        /// Status code - NOT FOUND, if the user wasn't found
         /// </returns>
-        [HttpGet("{friendUsername}")]
-        public IActionResult GetFriend(string friendUsername)
+        [HttpGet("{username}")]
+        public IActionResult GetFriends(string username)
         {
-            FriendEntity friend = _friendService.GetFriend(friendUsername);
+            List<FriendEntity> friends = _friendService.GetFriendList(username);
 
-            if (friend == null)
+            if (friends == null)
             {
                 return NotFound();
             }
 
-            return Ok(friend);
+            return Ok(friends);
         }
 
         /// <summary>
         /// Creates an friend
         /// </summary>
+        /// <param name="username">the user's name</param>
         /// <param name="friend">the friend, taken from the body of the request</param>
         /// <returns>Status code - CREATED</returns>
-        [HttpPost]
-        public IActionResult PostUser([FromBody] FriendEntity friend)
+        [HttpPost("{username}")]
+        public IActionResult PostUser(string username, [FromBody] FriendEntity friend)
         {
-            if (friend == null)
+            if ((friend == null) || (_userService.GetUser(friend.Username) == null))
             {
                 return BadRequest();
             }
 
-            _friendService.CreateFriend(friend);
-            return CreatedAtAction(nameof(GetFriend), new { friend = friend }, friend);
-        }
-
-        /// <summary>
-        /// Update one friend
-        /// </summary>
-        ///<param name="username"></param>
-        /// <param name="friend">the friend, taken from the body of the request</param>
-        /// <returns>
-        /// Status code - OK, if the friend was found
-        /// Status code - NOT FOUND, if the friend wasn't found
-        /// </returns>
-        [HttpPut("{username}")]
-        public IActionResult UpdateUser(string username, [FromBody] FriendEntity friend)
-        {
-            if (_friendService.UpdateFriend(username, friend))
-            {
-                return Ok();
-            }
-
-            return NotFound();
+            _friendService.CreateFriend(username, friend);
+            return CreatedAtAction(nameof(GetFriendship), new { friend = friend }, friend);
         }
 
         /// <summary>
         /// Delete one friend
         /// </summary>
+        /// <param name="username">the user's name</param>
         /// <param name="friendUsername">the friend id</param>
         /// <returns>
         /// Status code - OK, if the friend was found
         /// Status code - NOT FOUND, if the friend wasn't found
         /// </returns>
-        [HttpDelete("{friendUsername}")]
-        public IActionResult DeleteFriend(string friendUsername)
+        [HttpDelete("{username}")]
+        public IActionResult DeleteFriend(string username, string friendUsername)
         {
-            if (_friendService.DeleteFriend(friendUsername))
+            if (_friendService.DeleteFriend(username, friendUsername))
             {
                 return Ok();
             }
@@ -131,5 +111,4 @@ namespace Controllers
             return NotFound();
         }
     }
-
 }

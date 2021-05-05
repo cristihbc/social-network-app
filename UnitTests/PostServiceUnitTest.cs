@@ -1,9 +1,9 @@
 /**************************************************************************
  *                                                                        *
- *  File:        CommentServiceUnitTest.cs                                *
- *  Copyright:   (c) 2021, Cojocaru Daniel-Alexandru                      *
- *  E-mail:      alex.cojocaru73@gmail.com                                *
- *  Description: Class that holds the test methods for the comment        *
+ *  File:        PostServiceUnitTest.cs                                   *
+ *  Copyright:   (c) 2021, Barbu Bogdan-Cosmin                            *
+ *  E-mail:      barbubogdan1337@gmail.com                                *
+ *  Description: Class that holds the test methods for the post           *
  *               service.                                                 *
  *                                                                        *
  *  This program is free software; you can redistribute it and/or modify  *

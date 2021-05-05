@@ -1,3 +1,19 @@
+/**************************************************************************
+ *                                                                        *
+ *  File:        PostController.cs                                        *
+ *  Copyright:   (c) 2021, Barbu Bogdan-Cosmin                            *
+ *  E-mail:      barbubogdan1337@gmail.com                                *
+ *  Description: Describes the REST API routes for the post data.         *
+ *                                                                        *
+ *  This program is free software; you can redistribute it and/or modify  *
+ *  it under the terms of the GNU General Public License as published by  *
+ *  the Free Software Foundation. This program is distributed in the      *
+ *  hope that it will be useful, but WITHOUT ANY WARRANTY; without even   *
+ *  the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR   *
+ *  PURPOSE. See the GNU General Public License for more details.         *
+ *                                                                        *
+ **************************************************************************/
+
 using Microsoft.AspNetCore.Mvc;
 using Services;
 using Models;
@@ -11,8 +27,6 @@ namespace Controllers
     public class PostController : ControllerBase
     {
         private static IPost _postService = new PostService();
-        private static IComment _commentService = new CommentService();
-        private static IUser _userService = new UserService();
 
         [HttpGet]
         public IActionResult GetPosts()
@@ -33,7 +47,7 @@ namespace Controllers
         [HttpPost]
         public IActionResult PostPost([FromBody] PostEntity post)
         {
-            if ((post == null) || (_postService.GetPost(post.Id) == null))
+            if (post == null) 
             {
                 return BadRequest();
             }

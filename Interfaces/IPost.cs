@@ -1,9 +1,9 @@
 /**************************************************************************
  *                                                                        *
- *  File:        IComment.cs                                              *
- *  Copyright:   (c) 2021, Cojocaru Daniel-Alexandru                      *
- *  E-mail:      alex.cojocaru73@gmail.com                                *
- *  Description: The interface for the comment service.                   *
+ *  File:        IPost.cs                                                 *
+ *  Copyright:   (c) 2021, Barbu Bogdan-Cosmin                            *
+ *  E-mail:      barbubogdan1337@gmail.com                                *
+ *  Description: The interface for the post service.                      *
  *                                                                        *
  *  This program is free software; you can redistribute it and/or modify  *
  *  it under the terms of the GNU General Public License as published by  *
@@ -72,7 +72,7 @@ namespace Interfaces
         /// <summary>
         /// Checks if an user has rights for a post
         /// </summary>
-        /// <param name="id">the id of the comment</param>
+        /// <param name="id">the id of the post</param>
         /// <param name="username"></param>
         /// <returns>true if the user has rights, false otherwise</returns>
         bool HasRights(uint id, string username);

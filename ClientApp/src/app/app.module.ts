@@ -12,6 +12,7 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { BurritoService } from './burrito.service';
+import { FeedComponent } from './feed/feed.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { BurritoService } from './burrito.service';
     UsersComponent,
     RegisterComponent,
     LoginComponent,
-    ProfileComponent
+    ProfileComponent,
+    FeedComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -34,6 +36,7 @@ import { BurritoService } from './burrito.service';
       { path: 'register', component: RegisterComponent },
       { path: 'login', component: LoginComponent },
       { path: 'profile/:username', component: ProfileComponent },
+      { path: 'feed', component: FeedComponent },
     ])
   ],
   providers: [ BurritoService ],
@@ -43,4 +46,5 @@ import { BurritoService } from './burrito.service';
     ReactiveFormsModule
   ]
 })
-export class AppModule { }
+export class AppModule { 
+}

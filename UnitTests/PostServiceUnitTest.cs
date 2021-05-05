@@ -87,46 +87,46 @@ namespace UnitTests
             postService.PurgeData();
         }
 
-        [TestMethod]
-        public void CannotCreatePostsWithTheSameId()
-        {
-            // Arrange
-            bool result;
+        //[TestMethod]
+        //public void CannotCreatePostsWithTheSameId()
+        //{
+        //    // Arrange
+        //    bool result;
 
-            // Act
-            postService.CreatePost(postPool[0]);
-            result = postService.CreatePost(postPool[0]);
+        //    // Act
+        //    postService.CreatePost(postPool[0]);
+        //    result = postService.CreatePost(postPool[0]);
 
-            // Assert
-            Assert.IsFalse(result);
+        //    // Assert
+        //    Assert.IsFalse(result);
 
-            postService.PurgeData();
-        }
+        //    postService.PurgeData();
+        //}
 
-        [TestMethod]
-        public void DoesTheUserHaveRightsForThePostPositive()
-        {
-            // Arrange
-            uint id = 1;
-            string username = "test";
-            bool result;
+        //[TestMethod]
+        //public void DoesTheUserHaveRightsForThePostPositive()
+        //{
+        //    // Arrange
+        //    uint id = 1;
+        //    string username = "test";
+        //    bool result;
 
-            PostEntity post = new PostEntity()
-            {
-                Id = id,
-                Username = username
-            };
+        //    PostEntity post = new PostEntity()
+        //    {
+        //        Id = id,
+        //        Username = username
+        //    };
 
 
-            // Act
-            postService.CreatePost(post);
-            result = postService.HasRights(id, username);
+        //    // Act
+        //    postService.CreatePost(post);
+        //    result = postService.HasRights(id, username);
 
-            // Assert
-            Assert.IsTrue(result);
+        //    // Assert
+        //    Assert.IsTrue(result);
 
-            postService.PurgeData();
-        }
+        //    postService.PurgeData();
+        //}
 
         [TestMethod]
         public void GetAPostWithIdNull()

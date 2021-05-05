@@ -25,7 +25,7 @@ namespace Services
     public class PostService : IPost, IGenericService
     {
         private static Dictionary<uint, PostEntity> _posts = new Dictionary<uint, PostEntity>();
-
+        private static uint index = 1;
 
         /// <summary>
         /// Constructor for the class, to inherit the database connector
@@ -46,14 +46,19 @@ namespace Services
         /// </returns>
         public bool CreatePost(PostEntity post)
         {
-            if (!Exists(post.Id))
-            {
-                post.Date = DateTime.Now.ToString("HH:mm:ss dd/MM/yyyy");
-                _posts.Add(post.Id, post);
-                return true;
-            }
+            post.Id = index++;
+            post.Date = DateTime.Now.ToString("HH:mm:ss dd/MM/yyyy");
+            _posts.Add(post.Id, post);
 
-            return false;
+            return true;
+            //if (!Exists(post.Id))
+            //{
+            //    post.Date = DateTime.Now.ToString("HH:mm:ss dd/MM/yyyy");
+            //    _posts.Add(post.Id, post);
+            //    return true;
+            //}
+
+            //return false;
         }
 
         /// <summary>

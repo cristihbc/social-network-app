@@ -46,4 +46,5 @@ import { FeedComponent } from './feed/feed.component';
     ReactiveFormsModule
   ]
 })
-export class AppModule { }
+export class AppModule { 
+}

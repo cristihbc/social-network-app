@@ -12,7 +12,7 @@ export class NavMenuComponent {
 
   constructor(private burritoService: BurritoService) {
     // this.usernameParam = this.burritoService.getUsername();
-    this.usernameParam = "alexcojocaru";
+    this.usernameParam = localStorage.getItem("logged");
   }
 
   collapse() {
@@ -21,5 +21,9 @@ export class NavMenuComponent {
 
   toggle() {
     this.isExpanded = !this.isExpanded;
+  }
+
+  logout() {
+    localStorage.clear();
   }
 }

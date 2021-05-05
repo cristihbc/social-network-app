@@ -38,7 +38,7 @@ namespace DatabaseManager
         /// </summary>
         DatabaseConnector()
         {
-            _connectionStrings = FileReader.Read(@"D:\social-network-app\res\credentials.txt");
+            //_connectionStrings = FileReader.Read(@"D:\social-network-app\res\credentials.txt");
 
             Connect("");
             OpenConnection();

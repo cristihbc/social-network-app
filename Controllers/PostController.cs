@@ -36,7 +36,7 @@ namespace Controllers
             return (posts.Count != 0) ? Ok(posts) : NoContent();
         }
 
-        [HttpGet()]
+        [HttpGet("{id}")]
         public IActionResult GetPost(uint id)
         {
             PostEntity post = _postService.GetPost(id);
@@ -56,7 +56,7 @@ namespace Controllers
             return CreatedAtAction(nameof(GetPost), new { post = post }, post);
         }
 
-        [HttpPut()]
+        [HttpPut("{id}")]
         public IActionResult UpdatePost(uint id, [FromBody] PostEntity post)
         {
             if (_postService.GetPost(post.Id) == null)
@@ -67,7 +67,7 @@ namespace Controllers
             return _postService.EditPost(id, post.Username, post.Content) ? Ok() : NotFound();
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeletePost(uint id, string username)
         {
             if (_postService.DeletePost(id, username))

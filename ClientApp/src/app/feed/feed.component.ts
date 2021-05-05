@@ -12,4 +12,7 @@ export class FeedComponent implements OnInit {
   ngOnInit() {
   }
 
+  share(content) {
+    console.log(content);
+  }
 }

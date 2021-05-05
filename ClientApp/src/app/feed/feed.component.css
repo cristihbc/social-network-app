@@ -99,3 +99,7 @@ body{
 .mar-top {
     margin-top: 15px;
 }
+
+.media-body {
+    padding-left: 10px;
+}

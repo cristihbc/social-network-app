@@ -1,0 +1,107 @@
+<link
+  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+  rel="stylesheet"
+/>
+<div class="container bootdey">
+  <div class="col-md-12 bootstrap snippets">
+    <div class="panel">
+      <div class="panel-body">
+        <textarea
+          #shareableContent
+          class="form-control"
+          rows="2"
+          placeholder="What are you thinking?"
+        ></textarea>
+        <div class="mar-top clearfix">
+          <button
+            (click)="share(shareableContent.value)"
+            class="btn btn-sm btn-primary pull-right"
+            type="submit"
+          >
+            <i class="fa fa-pencil fa-fw"></i> Share
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-body">
+        <div *ngFor="let post of writtenPosts" class="media-block">
+          <a class="media-left" href="{{profileUrl + '/' + post.username}}"
+            ><img
+              class="img-circle img-sm"
+              alt="Profile Picture"
+              src="https://bootdey.com/img/Content/avatar/avatar1.png"
+          /></a>
+          <div class="media-body">
+            <div>
+              <div class="mar-btm">
+                <a
+                  href="{{profileUrl + '/' + post.username}}"
+                  class="btn-link text-semibold media-heading box-inline"
+                  >{{ post.username }}</a
+                >
+                <p class="text-muted text-sm">{{ post.date }}</p>
+              </div>
+              <p>
+                {{ post.content }}
+              </p>
+              <div class="pad-ver">
+                <textarea
+                  #comment
+                  class="form-control"
+                  rows="2"
+                  placeholder="Comment"
+                ></textarea>
+                <div class="mar-top clearfix">
+                  <button
+                    id="commentButton"
+                    (click)="writeComment(post.id, comment.value)"
+                    class="btn btn-sm btn-primary pull-right"
+                    type="submit"
+                  >
+                    <i class="fa fa-pencil fa-fw"></i> Comment
+                  </button>
+                  <button
+                    (click)="delete(post.id, post.username)"
+                    class="btn btn-sm btn-danger pull-right"
+                    type="submit"
+                  >
+                    <i class="fa fa-trash"></i> Delete
+                  </button>
+                </div>
+              </div>
+            </div>
+            <hr />
+
+            <div *ngFor="let item of comments.get(post.id)">
+              <div>
+                <div class="media-block">
+                  <a class="media-left" href="{{profileUrl + '/' + item.username}}"
+                    ><img
+                      class="img-circle img-sm"
+                      alt="Profile Picture"
+                      src="https://bootdey.com/img/Content/avatar/avatar2.png"
+                  /></a>
+                  <div class="media-body">
+                    <div class="mar-btm">
+                      <a
+                        href="{{profileUrl + '/' + item.username}}"
+                        class="btn-link text-semibold media-heading box-inline"
+                        >{{ item.username }}</a
+                      >
+                      <p class="text-muted text-sm">{{ item.date }}</p>
+                    </div>
+                    <p>
+                      {{ item.content }}
+                    </p>
+                    <hr />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

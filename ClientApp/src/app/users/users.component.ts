@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Inject, OnInit } from '@angular/core';
+import { User } from './user';
 
 @Component({
   selector: 'app-users',
@@ -17,14 +18,3 @@ export class UsersComponent {
    }
 }
 
-interface User {
-  username: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone: string;
-  password: string;
-  sex: number;
-  city: string;
-  country: string;
-}

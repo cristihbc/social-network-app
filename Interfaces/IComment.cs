@@ -21,6 +21,8 @@ namespace Interfaces
 {
     public interface IComment
     {
+        List<CommentEntity> GetCommentsByPostId(uint postId);
+
         /// <summary>
         /// Creates a new comment
         /// </summary>

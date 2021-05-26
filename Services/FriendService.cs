@@ -13,75 +13,109 @@
  *  PURPOSE. See the GNU General Public License for more details.         *
  *                                                                        *
  **************************************************************************/
+
 using Interfaces;
 using Models;
+using System;
 using System.Collections.Generic;
-using System.Linq;
+
 namespace Services
 {
-
     public class FriendService : IFriend
     {
-        private Dictionary<string, FriendEntity> _friends = new Dictionary<string, FriendEntity>();
+        private Dictionary<string, List<FriendEntity>> _friends = new Dictionary<string, List<FriendEntity>>();
 
         #region Public Methods
 
         /// <summary>
-        /// Method that returns an friend based on the friendUsername provided
+        /// Method that returns friend list of a user
         /// </summary>
-        /// <param name="friendUsername">friendUsername of the searched friend</param>
-        /// <returns>the searched friend</returns>
-        public FriendEntity GetFriend(string friendUsername)
+        /// <param name="username">the user's name</param>
+        /// <returns>the friendship list</returns>
+        public List<FriendEntity> GetFriendList(string username)
         {
-            if (_friends.ContainsKey(friendUsername))
+            if (_friends.ContainsKey(username))
             {
-                return _friends[friendUsername];
+                return _friends[username];
             }
             return null;
         }
 
         /// <summary>
-        /// Returns all the friends stored
+        /// Creates a new friend and links him to a user
         /// </summary>
-        /// <returns>the list of requested friends</returns>
-        public List<FriendEntity> GetFriends()
-        {
-            return _friends.Values.ToList();
-        }
-
-        /// <summary>
-        /// Creates an friend
-        /// </summary>
-        /// <param name="friend">a friend object filled with the required properties</param>
+        /// <param name="username">the user's name</param>
+        /// <param name="friend">the friend entity that holds the data</param>
         /// <returns>
-        /// true if the freind has been created<para/>
-        /// false if the friend wasn't created
+        /// true - if the friend was created<para/>
+        /// false - if the friend wasn't created<para/>
+        /// The friend can't be created if the user that requested the action doesn't exist
         /// </returns>
-        public bool CreateFriend(FriendEntity friend)
+        public bool CreateFriend(string username, FriendEntity friend)
         {
-            if (!_friends.ContainsKey(friend.Username))
+            string friendshipTimestamp = DateTime.Now.ToString("HH:mm:ss dd/MM/yyyy");
+            friend.FriendshipDate = friendshipTimestamp;
+
+            if (!_friends.ContainsKey(username))
             {
-                _friends.Add(friend.Username, friend);
-                return true;
+                _friends[username] = new List<FriendEntity>();
+                _friends[username].Add(friend);
+            }
+            else
+            {
+                _friends[username].Add(friend);
             }
 
-            return false;
+            if (!_friends.ContainsKey(friend.Username))
+            {
+                FriendEntity temp = new FriendEntity();
+
+                temp.Username = username;
+                temp.FriendshipDate = friendshipTimestamp;
+
+                _friends[friend.Username] = new List<FriendEntity>();
+                _friends[friend.Username].Add(temp);
+            }
+            else
+            {
+                FriendEntity temp = new FriendEntity();
+
+                temp.Username = username;
+                temp.FriendshipDate = friendshipTimestamp;
+                _friends[friend.Username].Add(temp);
+            }
+
+            return true;
         }
 
         /// <summary>
-        /// Updates an friend
+        /// Deletes a friend 
         /// </summary>
-        /// <param name="username">the id</param>
-        /// <param name="friend">the friend entity</param>
-        /// <returns>
-        /// true if the friend has been updated<para/>
-        /// false if the friend wasn't updated
-        /// </returns>
-        public bool UpdateFriend(string username, FriendEntity friend)
+        /// <param name="username">the user's name</param>
+        /// <param name="friendUsername">the friend's name</param>
+        /// <returns>true if the friend was deleted, false otherwise</returns>
+        public bool DeleteFriend(string username, string friendUsername)
         {
             if (_friends.ContainsKey(username))
             {
-                _friends[username] = friend;
+                foreach (var friend in _friends[username])
+                {
+                    if (friend.Username.Equals(friendUsername))
+                    {
+                        _friends[username].Remove(friend);
+                        break;
+                    }
+                }
+
+                foreach (var friend in _friends[friendUsername])
+                {
+                    if (friend.Username.Equals(username))
+                    {
+                        _friends[friendUsername].Remove(friend);
+                        break;
+                    }
+                }
+
                 return true;
             }
 
@@ -89,22 +123,25 @@ namespace Services
         }
 
         /// <summary>
-        /// Deletes an friend
+        /// Returns all the friends of a user
         /// </summary>
-        /// <param name="friendUsername">the id</param>
-        /// <returns>
-        /// true if the friend has been deleted<para/>
-        /// false if the friend wasn't deleted
-        /// </returns>
-        public bool DeleteFriend(string friendUsername)
+        /// <param name="username">the user's name</param>
+        /// <param name="friendUsername">the friend's name</param>
+        /// <returns>the friendship between the 2 users</returns>
+        public FriendEntity GetFriendship(string username, string friendUsername)
         {
-            if (_friends.ContainsKey(friendUsername))
+            if (_friends.ContainsKey(username))
             {
-                _friends.Remove(friendUsername);
-                return true;
+                foreach (var friend in _friends[username])
+                {
+                    if (friend.Username.Equals(friendUsername))
+                    {
+                        return friend;
+                    }
+                }
             }
 
-            return false;
+            return null;
         }
 
         #endregion

@@ -13,6 +13,19 @@ namespace Controllers
         private static IComment _commentService = new CommentService();
         private static IUser _userService = new UserService();
 
+        [HttpGet("post/{postId}")]
+        public IActionResult GetCommentsByPost(uint postId)
+        {
+            List<CommentEntity> commentsByPost = _commentService.GetCommentsByPostId(postId);
+
+            if (commentsByPost.Count == 0)
+            {
+                return NoContent();
+            }
+
+            return Ok(commentsByPost);
+        }
+
         [HttpGet]
         public IActionResult GetComments()
         {

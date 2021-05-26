@@ -1,6 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormControl, FormGroup } from '@angular/forms';
+import { BurritoService } from '../burrito.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,15 +12,19 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class LoginComponent implements OnInit {
   form: FormGroup;
   url: string;
-  users: User[];
 
-  constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string) { 
+  constructor(
+    private http: HttpClient, 
+    private burritoService: BurritoService,
+    private router: Router,
+    @Inject('BASE_URL') baseUrl: string
+    ) { 
     this.form = new FormGroup({
       username: new FormControl(),
       password: new FormControl()
     });
 
-    this.url = baseUrl + '/api/user';
+    this.url = baseUrl + 'api/user';
   }
 
   ngOnInit() {
@@ -30,19 +36,26 @@ export class LoginComponent implements OnInit {
       "password": this.form.get('password').value
     };
 
-    this.fetchUsers(user)
+    this.fetchUsers(user);
   }
 
   fetchUsers(user) {
     this.http.get<User[]>(this.url).subscribe(result => {
-      this.users = result;
-
-      this.users.forEach(it => {
-        if ((it.username == user["username"]) && (it.password == user["password"])) {
-          
-        }
-      });
+      if (result && !this.burritoService.getLoggedInfo()) {
+        result.forEach(it => {
+          if ((it.username === user["username"]) && (it.password === user["password"])) {
+            this.burritoService.setLogInfo(true);
+            this.burritoService.setUsername(it.username);
+            
+            localStorage.setItem("logged", it.username);
+            this.router.navigate(["/feed"]);
+            // localStorage.setItem(this.burritoService.getLoggedTag(), `${it.username}:${it.password}`);
+          }
+        });
+      }
     }, error => console.error(error));
+
+    console.log(this.burritoService.getLoggedInfo());
   }
 }
 

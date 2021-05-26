@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { UsersComponent } from './users/users.component';
+import { FriendComponent } from './friend/friend.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -20,6 +21,7 @@ import { FeedComponent } from './feed/feed.component';
     NavMenuComponent,
     HomeComponent,
     UsersComponent,
+    FriendComponent,
     RegisterComponent,
     LoginComponent,
     ProfileComponent,
@@ -33,6 +35,7 @@ import { FeedComponent } from './feed/feed.component';
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'user-data', component: UsersComponent },
+      { path: 'friend-data', component: FriendComponent },
       { path: 'register', component: RegisterComponent },
       { path: 'login', component: LoginComponent },
       { path: 'profile/:username', component: ProfileComponent },

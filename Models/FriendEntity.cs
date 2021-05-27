@@ -25,5 +25,8 @@ namespace Models
 
         [JsonProperty("friendshipDate")]
         public string FriendshipDate { get; set; }
+
+        [JsonProperty("isClose")]
+        public bool IsClose { get; set; }
     }
 }

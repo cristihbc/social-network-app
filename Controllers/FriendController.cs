@@ -19,6 +19,8 @@ using Services;
 using Models;
 using System.Collections.Generic;
 using Interfaces;
+using Commons;
+using System;
 
 namespace Controllers
 {
@@ -27,6 +29,7 @@ namespace Controllers
 
     public class FriendController : ControllerBase
     {
+        private static AbstractFactory factoryBuilder = FactoryBuilder.GetFactory("friend");
         private static IFriend _friendService = new FriendService();
         private static IUser _userService = new UserService();
 
@@ -82,12 +85,23 @@ namespace Controllers
         [HttpPost("{username}")]
         public IActionResult PostUser(string username, [FromBody] FriendEntity friend)
         {
+            FriendEntity factoryFriend = null;
             if ((friend == null) || (_userService.GetUser(friend.Username) == null))
             {
                 return BadRequest();
             }
 
-            _friendService.CreateFriend(username, friend);
+            try
+            {
+                string isClose = (friend.IsClose) ? "close" : "not close";
+                factoryFriend = factoryBuilder.GetFriend(isClose, friend);
+                _friendService.CreateFriend(username, factoryFriend);
+            }
+            catch(Exception e)
+            {
+                return BadRequest();
+            }
+            
             return CreatedAtAction(nameof(GetFriendship), new { friend = friend }, friend);
         }
 

@@ -24,13 +24,26 @@ using System;
 
 namespace Controllers
 {
+    /// <summary>
+    /// Controller class for the /api/friend REST route
+    /// </summary>
     [ApiController]
     [Route("api/[controller]")]
-
     public class FriendController : ControllerBase
     {
+        /// <summary>
+        /// The factory needed to create a friend
+        /// </summary>
         private static AbstractFactory factoryBuilder = FactoryBuilder.GetFactory("friend");
+
+        /// <summary>
+        /// The service that fetches all the friend-user relationships
+        /// </summary>
         private static IFriend _friendService = new FriendService();
+
+        /// <summary>
+        /// The user service that tests if an user exists
+        /// </summary>
         private static IUser _userService = new UserService();
 
         /// <summary>

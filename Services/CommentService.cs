@@ -35,6 +35,11 @@ namespace Services
             
         }
 
+        /// <summary>
+        /// Fetches the comments by an unique identifier
+        /// </summary>
+        /// <param name="postId">the post's id</param>
+        /// <returns>a list with all the comments and sub-comments</returns>
         public List<CommentEntity> GetCommentsByPostId(uint postId)
         {
             List<CommentEntity> commentsForPost = new List<CommentEntity>();

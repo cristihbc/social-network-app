@@ -21,6 +21,11 @@ namespace Interfaces
 {
     public interface IComment
     {
+        /// <summary>
+        /// Fetches the comments by an unique identifier
+        /// </summary>
+        /// <param name="postId">the post's id</param>
+        /// <returns>a list with all the comments and sub-comments</returns>
         List<CommentEntity> GetCommentsByPostId(uint postId);
 
         /// <summary>

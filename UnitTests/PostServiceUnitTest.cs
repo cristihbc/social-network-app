@@ -25,8 +25,14 @@ namespace UnitTests
     [TestClass]
     public class PostServiceUnitTest
     {
+        /// <summary>
+        /// Instance of a PostService class used for testing
+        /// </summary>
         private PostService postService = new PostService();
 
+        /// <summary>
+        /// Temporary post pool with premade instances
+        /// </summary>
         private List<PostEntity> postPool = new List<PostEntity>()
         {
             new PostEntity()
@@ -43,6 +49,9 @@ namespace UnitTests
             }
         };
 
+        /// <summary>
+        /// Tests if initially the list size is zero, as it should be
+        /// </summary>
         [TestMethod]
         public void PostListShouldBeZero()
         {
@@ -57,6 +66,9 @@ namespace UnitTests
             Assert.AreEqual(postsLength, expectedLength);
         }
 
+        /// <summary>
+        /// Tests if the key with id 1 exists inside the service, without adding an entity
+        /// </summary>
         [TestMethod]
         public void DoesTheKeyExist()
         {
@@ -71,7 +83,9 @@ namespace UnitTests
             Assert.IsFalse(result);
         }
 
-
+        /// <summary>
+        /// Checks the ability to create a new post, with an empty dataset
+        /// </summary>
         [TestMethod]
         public void CreateANewPost()
         {
@@ -87,6 +101,9 @@ namespace UnitTests
             postService.PurgeData();
         }
 
+        /// <summary>
+        /// There cannot be 2 posts with the same id inside the dictionary
+        /// </summary>
         [TestMethod]
         public void CannotCreatePostsWithTheSameId()
         {
@@ -103,6 +120,9 @@ namespace UnitTests
             postService.PurgeData();
         }
 
+        /// <summary>
+        /// Checks if the user has rights for a post
+        /// </summary>
         [TestMethod]
         public void DoesTheUserHaveRightsForThePostPositive()
         {
@@ -128,6 +148,9 @@ namespace UnitTests
             postService.PurgeData();
         }
 
+        /// <summary>
+        /// Tries to fetch a non-existing post
+        /// </summary>
         [TestMethod]
         public void GetAPostWithIdNull()
         {
@@ -142,6 +165,9 @@ namespace UnitTests
             Assert.IsNull(result);
         }
 
+        /// <summary>
+        /// Fetch a post that already exists in the service
+        /// </summary>
         [TestMethod]
         public void GetAPostWithIdPositive()
         {
@@ -160,6 +186,9 @@ namespace UnitTests
             postService.PurgeData();
         }
 
+        /// <summary>
+        /// Trying to delete a post that a user doesn't have rights to
+        /// </summary>
         [TestMethod]
         public void DeletePostWithNoRights()
         {
@@ -178,6 +207,9 @@ namespace UnitTests
             postService.PurgeData();
         }
 
+        /// <summary>
+        /// Trying to delete a post that a user does have rights to
+        /// </summary>
         [TestMethod]
         public void DeletePostWithRights()
         {
@@ -196,6 +228,9 @@ namespace UnitTests
             postService.PurgeData();
         }
 
+        /// <summary>
+        /// Trying to edit a post that a user doesn't have rights to
+        /// </summary>
         [TestMethod]
         public void EditPostWithNoRights()
         {
@@ -215,6 +250,9 @@ namespace UnitTests
             postService.PurgeData();
         }
 
+        /// <summary>
+        /// Trying to delete a post that a user does have rights to
+        /// </summary>
         [TestMethod]
         public void EditPostWitRights()
         {

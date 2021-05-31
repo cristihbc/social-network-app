@@ -22,10 +22,16 @@ using Interfaces;
 
 namespace Controllers
 {
+    /// <summary>
+    /// Controller class for the /api/user REST route
+    /// </summary>
     [ApiController]
     [Route("api/[controller]")]
     public class UserController : ControllerBase
     {
+        /// <summary>
+        /// The user service that tests if an user exists
+        /// </summary>
         private static IUser _userService = new UserService();
 
         /// <summary>

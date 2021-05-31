@@ -21,6 +21,11 @@ namespace Commons
 {
     public class FileReader
     {
+        /// <summary>
+        /// Reads a file given as argument
+        /// </summary>
+        /// <param name="filePath">the file path</param>
+        /// <returns>the file's content as a list</returns>
         public static List<string> ReadLines(string filePath)
         {
             StreamReader file = new StreamReader(filePath);
@@ -35,6 +40,11 @@ namespace Commons
             return credentials;
         }
 
+        /// <summary>
+        /// Reads a file given as argument
+        /// </summary>
+        /// <param name="filePath">the file path</param>
+        /// <returns>the file's content as a string</returns>
         public static string Read(string filePath)
         {
             StreamReader file = new StreamReader(filePath);

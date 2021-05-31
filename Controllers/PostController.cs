@@ -28,6 +28,7 @@ namespace Controllers
     {
         private static IPost _postService = new PostService();
 
+<<<<<<< HEAD
 
         /// <summary>
         /// Get method
@@ -37,6 +38,8 @@ namespace Controllers
         /// Status code - OK, if there are posts<para/>
         /// Status code - NO CONTENT, if the there are no posts
         /// </returns>
+=======
+>>>>>>> 49ef69843662febb419015cdb55ddad669af2b4e
         [HttpGet]
         public IActionResult GetPosts()
         {
@@ -45,6 +48,7 @@ namespace Controllers
             return (posts.Count != 0) ? Ok(posts) : NoContent();
         }
 
+<<<<<<< HEAD
         /// <summary>
         /// Gets one post
         /// </summary>
@@ -53,6 +57,8 @@ namespace Controllers
         /// Status code - OK, if the post was found
         /// Status code - NOT FOUND, if the post wasn't found
         /// </returns>
+=======
+>>>>>>> 49ef69843662febb419015cdb55ddad669af2b4e
         [HttpGet("{id}")]
         public IActionResult GetPost(uint id)
         {
@@ -61,11 +67,14 @@ namespace Controllers
             return (post != null) ? Ok(post) : NotFound();
         }
 
+<<<<<<< HEAD
         /// <summary>
         /// Creates a post
         /// </summary>
         /// <param name="post">the post, taken from the body of the request</param>
         /// <returns>Status code - CREATED</returns>
+=======
+>>>>>>> 49ef69843662febb419015cdb55ddad669af2b4e
         [HttpPost]
         public IActionResult PostPost([FromBody] PostEntity post)
         {
@@ -78,6 +87,7 @@ namespace Controllers
             return CreatedAtAction(nameof(GetPost), new { post = post }, post);
         }
 
+<<<<<<< HEAD
         /// <summary>
         /// Updates a post
         /// </summary>
@@ -86,6 +96,8 @@ namespace Controllers
         /// Status code - UPDATED, if the post was found
         /// Status code - NOT FOUND, if the post wasn't found
         /// </returns>
+=======
+>>>>>>> 49ef69843662febb419015cdb55ddad669af2b4e
         [HttpPut("{id}")]
         public IActionResult UpdatePost(uint id, [FromBody] PostEntity post)
         {
@@ -97,6 +109,7 @@ namespace Controllers
             return _postService.EditPost(id, post.Username, post.Content) ? Ok() : NotFound();
         }
 
+<<<<<<< HEAD
         /// <summary>
         /// Deletes a post
         /// </summary>
@@ -105,6 +118,8 @@ namespace Controllers
         /// Status code - OK, if the post was deleted
         /// Status code - NOT FOUND, if the post wasn't found
         /// </returns>
+=======
+>>>>>>> 49ef69843662febb419015cdb55ddad669af2b4e
         [HttpDelete("{id}")]
         public IActionResult DeletePost(uint id, string username)
         {

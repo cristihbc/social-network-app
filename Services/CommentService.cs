@@ -25,6 +25,7 @@ namespace Services
     public class CommentService : AbstractService, IComment, IGenericService
     {
         private static Dictionary<uint, CommentEntity> _comments = new Dictionary<uint, CommentEntity>();
+        private static uint index = 1;
 
         /// <summary>
         /// Constructor for the class, to inherit the database connector
@@ -32,6 +33,26 @@ namespace Services
         public CommentService() : base()
         {
             
+        }
+
+        /// <summary>
+        /// Fetches the comments by an unique identifier
+        /// </summary>
+        /// <param name="postId">the post's id</param>
+        /// <returns>a list with all the comments and sub-comments</returns>
+        public List<CommentEntity> GetCommentsByPostId(uint postId)
+        {
+            List<CommentEntity> commentsForPost = new List<CommentEntity>();
+
+            _comments.Values.ToList().ForEach(it =>
+            {
+                if (it.PostId == postId)
+                {
+                    commentsForPost.Add(it);
+                }
+            });
+
+            return commentsForPost;
         }
 
         /// <summary>
@@ -45,14 +66,11 @@ namespace Services
         /// </returns>
         public bool CreateComment(CommentEntity comment)
         {
-            if (!Exists(comment.Id))
-            {
-                comment.Date = DateTime.Now.ToString("HH:mm:ss dd/MM/yyyy");
-                _comments.Add(comment.Id, comment);
-                return true;
-            }
+            comment.Id = index++;
+            comment.Date = DateTime.Now.ToString("HH:mm:ss dd/MM/yyyy");
+            _comments.Add(comment.Id, comment);
 
-            return false;
+            return true;
         }
 
         /// <summary>

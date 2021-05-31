@@ -1,0 +1,1180 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>socialapp documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">socialapp documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>FeedComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/feed/feed.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-feed</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./feed.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./feed.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#baseUrl">baseUrl</a>
+                            </li>
+                            <li>
+                                <a href="#comments">comments</a>
+                            </li>
+                            <li>
+                                <a href="#profileUrl">profileUrl</a>
+                            </li>
+                            <li>
+                                <a href="#url">url</a>
+                            </li>
+                            <li>
+                                <a href="#writer">writer</a>
+                            </li>
+                            <li>
+                                <a href="#writtenPosts">writtenPosts</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#delete">delete</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#retrievePosts">retrievePosts</a>
+                            </li>
+                            <li>
+                                <a href="#share">share</a>
+                            </li>
+                            <li>
+                                <a href="#writeComment">writeComment</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(burritoService: <a href="../injectables/BurritoService.html">BurritoService</a>, http: <a href="https://angular.io/api/common/http/HttpClient" target="_blank">HttpClient</a>, baseUrl: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/feed/feed.component.ts:16</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>burritoService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/BurritoService.html" target="_self" >BurritoService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>http</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/common/http/HttpClient" target="_blank" >HttpClient</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>baseUrl</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="delete"></a>
+                    <span class="name">
+                        <b>
+                            delete
+                        </b>
+                        <a href="#delete"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>delete(postId, postUsername)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="74"
+                            class="link-to-prism">src/app/feed/feed.component.ts:74</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>postId</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>postUsername</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="37"
+                            class="link-to-prism">src/app/feed/feed.component.ts:37</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="retrievePosts"></a>
+                    <span class="name">
+                        <b>
+                            retrievePosts
+                        </b>
+                        <a href="#retrievePosts"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>retrievePosts()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="59"
+                            class="link-to-prism">src/app/feed/feed.component.ts:59</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="share"></a>
+                    <span class="name">
+                        <b>
+                            share
+                        </b>
+                        <a href="#share"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>share(content)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="40"
+                            class="link-to-prism">src/app/feed/feed.component.ts:40</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>content</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="writeComment"></a>
+                    <span class="name">
+                        <b>
+                            writeComment
+                        </b>
+                        <a href="#writeComment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>writeComment(postid, content)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="87"
+                            class="link-to-prism">src/app/feed/feed.component.ts:87</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>postid</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>content</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="baseUrl"></a>
+                        <span class="name">
+                            <b>
+                            baseUrl</b>
+                            <a href="#baseUrl"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/feed/feed.component.ts:16</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="comments"></a>
+                        <span class="name">
+                            <b>
+                            comments</b>
+                            <a href="#comments"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/Comment.html" target="_self" >Map&lt;number | Comment[]&gt;</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/feed/feed.component.ts:15</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="profileUrl"></a>
+                        <span class="name">
+                            <b>
+                            profileUrl</b>
+                            <a href="#profileUrl"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/feed/feed.component.ts:14</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="url"></a>
+                        <span class="name">
+                            <b>
+                            url</b>
+                            <a href="#url"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/feed/feed.component.ts:12</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="writer"></a>
+                        <span class="name">
+                            <b>
+                            writer</b>
+                            <a href="#writer"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/feed/feed.component.ts:11</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="writtenPosts"></a>
+                        <span class="name">
+                            <b>
+                            writtenPosts</b>
+                            <a href="#writtenPosts"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/Post.html" target="_self" >Post[]</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/feed/feed.component.ts:13</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpClient } from &#x27;@angular/common/http&#x27;;
+import { Component, Inject, OnInit } from &#x27;@angular/core&#x27;;
+import { BurritoService } from &#x27;../burrito.service&#x27;;
+
+@Component({
+  selector: &#x27;app-feed&#x27;,
+  templateUrl: &#x27;./feed.component.html&#x27;,
+  styleUrls: [&#x27;./feed.component.css&#x27;]
+})
+export class FeedComponent implements OnInit {
+  writer: string;
+  url: string;
+  writtenPosts: Post[];
+  profileUrl: string;
+  comments: Map&lt;number, Comment[]&gt;;
+  baseUrl: string;
+
+  constructor(
+    private burritoService: BurritoService,
+    private http: HttpClient,
+    @Inject(&#x27;BASE_URL&#x27;) baseUrl: string
+    ) {
+    if (localStorage.length &gt; 0) {
+      this.writer &#x3D; localStorage.getItem(&quot;logged&quot;);
+    }
+    this.writer &#x3D; this.burritoService.getUsername();
+    this.url &#x3D; baseUrl + &#x27;api/post&#x27;;
+    this.profileUrl &#x3D; baseUrl + &#x27;profile&#x27;;
+    this.baseUrl &#x3D; baseUrl;
+    this.comments &#x3D; new Map&lt;number, Comment[]&gt;();
+
+    console.log(this.writer);
+  
+    this.retrievePosts();
+  }
+
+  ngOnInit() {
+  }
+
+  share(content) {
+    console.log(content);
+
+    if (localStorage.getItem(&quot;logged&quot;)) {
+      this.http.post(this.url, {
+        &quot;id&quot;: 2,
+        &quot;username&quot;: localStorage.getItem(&quot;logged&quot;),
+        &quot;content&quot;: content
+      }).subscribe(result &#x3D;&gt; {
+        console.log(&quot;posted&quot;);
+      });
+    }
+    else {
+      console.error(&quot;Not logged&quot;);
+    }
+
+    window.location.reload();
+  }
+
+  retrievePosts() {
+    this.http.get&lt;Post[]&gt;(this.url).subscribe(result &#x3D;&gt; {
+      this.writtenPosts &#x3D; result;
+    
+      this.writtenPosts.forEach(it &#x3D;&gt; {
+        this.http.get&lt;Comment[]&gt;(this.baseUrl + &#x60;api/comment/post/${it.id}&#x60;).subscribe(result &#x3D;&gt; {
+          console.log(result);
+          this.comments.set(it.id, result);
+        });
+      });
+
+      console.log(this.comments);
+    });
+  }
+
+  delete(postId, postUsername) {
+    if (localStorage.getItem(&quot;logged&quot;)) {
+      this.http.delete(this.url + &#x60;/${postId}?username&#x3D;${postUsername}&#x60;).subscribe(result &#x3D;&gt; {
+        console.log(&quot;Deleted the post&quot;);
+      });
+    }
+    else {
+      console.error(&quot;Not logged&quot;);
+    }
+
+    window.location.reload();
+  }
+
+  writeComment(postid, content) {
+    if (localStorage.getItem(&quot;logged&quot;)) {
+      this.http.post(this.baseUrl + &#x27;api/comment&#x27;, {
+        &quot;postID&quot;: postid,
+        &quot;username&quot;: localStorage.getItem(&quot;logged&quot;),
+        &quot;content&quot;: content
+      }).subscribe(result &#x3D;&gt; {
+        console.log(&quot;commented&quot;);
+      });
+    }
+    else {
+      console.error(&quot;Not logged&quot;);
+    }
+
+    window.location.reload();
+  }
+}
+
+interface Post {
+  id: number,
+  username: string,
+  content: string,
+  date: string
+}
+
+interface Comment {
+  id: number,
+  postID: number,
+  username: string,
+  content: string,
+  date: string
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;link
+  href&#x3D;&quot;https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css&quot;
+  rel&#x3D;&quot;stylesheet&quot;
+/&gt;
+&lt;div class&#x3D;&quot;container bootdey&quot;&gt;
+  &lt;div class&#x3D;&quot;col-md-12 bootstrap snippets&quot;&gt;
+    &lt;div class&#x3D;&quot;panel&quot;&gt;
+      &lt;div class&#x3D;&quot;panel-body&quot;&gt;
+        &lt;textarea
+          #shareableContent
+          class&#x3D;&quot;form-control&quot;
+          rows&#x3D;&quot;2&quot;
+          placeholder&#x3D;&quot;What are you thinking?&quot;
+        &gt;&lt;/textarea&gt;
+        &lt;div class&#x3D;&quot;mar-top clearfix&quot;&gt;
+          &lt;button
+            (click)&#x3D;&quot;share(shareableContent.value)&quot;
+            class&#x3D;&quot;btn btn-sm btn-primary pull-right&quot;
+            type&#x3D;&quot;submit&quot;
+          &gt;
+            &lt;i class&#x3D;&quot;fa fa-pencil fa-fw&quot;&gt;&lt;/i&gt; Share
+          &lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;panel&quot;&gt;
+      &lt;div class&#x3D;&quot;panel-body&quot;&gt;
+        &lt;div *ngFor&#x3D;&quot;let post of writtenPosts&quot; class&#x3D;&quot;media-block&quot;&gt;
+          &lt;a class&#x3D;&quot;media-left&quot; href&#x3D;&quot;{{profileUrl + &#x27;/&#x27; + post.username}}&quot;
+            &gt;&lt;img
+              class&#x3D;&quot;img-circle img-sm&quot;
+              alt&#x3D;&quot;Profile Picture&quot;
+              src&#x3D;&quot;https://bootdey.com/img/Content/avatar/avatar1.png&quot;
+          /&gt;&lt;/a&gt;
+          &lt;div class&#x3D;&quot;media-body&quot;&gt;
+            &lt;div&gt;
+              &lt;div class&#x3D;&quot;mar-btm&quot;&gt;
+                &lt;a
+                  href&#x3D;&quot;{{profileUrl + &#x27;/&#x27; + post.username}}&quot;
+                  class&#x3D;&quot;btn-link text-semibold media-heading box-inline&quot;
+                  &gt;{{ post.username }}&lt;/a
+                &gt;
+                &lt;p class&#x3D;&quot;text-muted text-sm&quot;&gt;{{ post.date }}&lt;/p&gt;
+              &lt;/div&gt;
+              &lt;p&gt;
+                {{ post.content }}
+              &lt;/p&gt;
+              &lt;div class&#x3D;&quot;pad-ver&quot;&gt;
+                &lt;textarea
+                  #comment
+                  class&#x3D;&quot;form-control&quot;
+                  rows&#x3D;&quot;2&quot;
+                  placeholder&#x3D;&quot;Comment&quot;
+                &gt;&lt;/textarea&gt;
+                &lt;div class&#x3D;&quot;mar-top clearfix&quot;&gt;
+                  &lt;button
+                    id&#x3D;&quot;commentButton&quot;
+                    (click)&#x3D;&quot;writeComment(post.id, comment.value)&quot;
+                    class&#x3D;&quot;btn btn-sm btn-primary pull-right&quot;
+                    type&#x3D;&quot;submit&quot;
+                  &gt;
+                    &lt;i class&#x3D;&quot;fa fa-pencil fa-fw&quot;&gt;&lt;/i&gt; Comment
+                  &lt;/button&gt;
+                  &lt;button
+                    (click)&#x3D;&quot;delete(post.id, post.username)&quot;
+                    class&#x3D;&quot;btn btn-sm btn-danger pull-right&quot;
+                    type&#x3D;&quot;submit&quot;
+                  &gt;
+                    &lt;i class&#x3D;&quot;fa fa-trash&quot;&gt;&lt;/i&gt; Delete
+                  &lt;/button&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;hr /&gt;
+
+            &lt;div *ngFor&#x3D;&quot;let item of comments.get(post.id)&quot;&gt;
+              &lt;div&gt;
+                &lt;div class&#x3D;&quot;media-block&quot;&gt;
+                  &lt;a class&#x3D;&quot;media-left&quot; href&#x3D;&quot;{{profileUrl + &#x27;/&#x27; + item.username}}&quot;
+                    &gt;&lt;img
+                      class&#x3D;&quot;img-circle img-sm&quot;
+                      alt&#x3D;&quot;Profile Picture&quot;
+                      src&#x3D;&quot;https://bootdey.com/img/Content/avatar/avatar2.png&quot;
+                  /&gt;&lt;/a&gt;
+                  &lt;div class&#x3D;&quot;media-body&quot;&gt;
+                    &lt;div class&#x3D;&quot;mar-btm&quot;&gt;
+                      &lt;a
+                        href&#x3D;&quot;{{profileUrl + &#x27;/&#x27; + item.username}}&quot;
+                        class&#x3D;&quot;btn-link text-semibold media-heading box-inline&quot;
+                        &gt;{{ item.username }}&lt;/a
+                      &gt;
+                      &lt;p class&#x3D;&quot;text-muted text-sm&quot;&gt;{{ item.date }}&lt;/p&gt;
+                    &lt;/div&gt;
+                    &lt;p&gt;
+                      {{ item.content }}
+                    &lt;/p&gt;
+                    &lt;hr /&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./feed.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">body{
+    margin-top:20px;
+    background:#ebeef0;
+}
+
+.img-sm {
+    width: 46px;
+    height: 46px;
+}
+
+.panel {
+    box-shadow: 0 2px 0 rgba(0,0,0,0.075);
+    border-radius: 0;
+    border: 0;
+    margin-bottom: 15px;
+}
+
+.panel .panel-footer, .panel&gt;:last-child {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.panel .panel-heading, .panel&gt;:first-child {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.panel-body {
+    padding: 25px 20px;
+}
+
+
+.media-block .media-left {
+    display: block;
+    float: left
+}
+
+.media-block .media-right {
+    float: right
+}
+
+.media-block .media-body {
+    display: block;
+    overflow: hidden;
+    width: auto
+}
+
+.middle .media-left,
+.middle .media-right,
+.middle .media-body {
+    vertical-align: middle
+}
+
+.thumbnail {
+    border-radius: 0;
+    border-color: #e9e9e9
+}
+
+.tag.tag-sm, .btn-group-sm&gt;.tag {
+    padding: 5px 10px;
+}
+
+.tag:not(.label) {
+    background-color: #fff;
+    padding: 6px 12px;
+    border-radius: 2px;
+    border: 1px solid #cdd6e1;
+    font-size: 12px;
+    line-height: 1.42857;
+    vertical-align: middle;
+    -webkit-transition: all .15s;
+    transition: all .15s;
+}
+.text-muted, a.text-muted:hover, a.text-muted:focus {
+    color: #acacac;
+}
+.text-sm {
+    font-size: 0.9em;
+}
+.text-5x, .text-4x, .text-5x, .text-2x, .text-lg, .text-sm, .text-xs {
+    line-height: 1.25;
+}
+
+.btn-trans {
+    background-color: transparent;
+    border-color: transparent;
+    color: #929292;
+}
+
+.btn-icon {
+    padding-left: 9px;
+    padding-right: 9px;
+}
+
+.btn-sm, .btn-group-sm&gt;.btn, .btn-icon.btn-sm {
+    padding: 5px 10px !important;
+}
+
+.mar-top {
+    margin-top: 15px;
+}
+
+.media-body {
+    padding-left: 10px;
+}
+
+#commentButton {
+    margin-left: 10px;
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><link  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"  rel="stylesheet"/><div class="container bootdey">  <div class="col-md-12 bootstrap snippets">    <div class="panel">      <div class="panel-body">        <textarea          #shareableContent          class="form-control"          rows="2"          placeholder="What are you thinking?"        ></textarea>        <div class="mar-top clearfix">          <button            (click)="share(shareableContent.value)"            class="btn btn-sm btn-primary pull-right"            type="submit"          >            <i class="fa fa-pencil fa-fw"></i> Share          </button>        </div>      </div>    </div>    <div class="panel">      <div class="panel-body">        <div *ngFor="let post of writtenPosts" class="media-block">          <a class="media-left" href="{{profileUrl + \'/\' + post.username}}"            ><img              class="img-circle img-sm"              alt="Profile Picture"              src="https://bootdey.com/img/Content/avatar/avatar1.png"          /></a>          <div class="media-body">            <div>              <div class="mar-btm">                <a                  href="{{profileUrl + \'/\' + post.username}}"                  class="btn-link text-semibold media-heading box-inline"                  >{{ post.username }}</a                >                <p class="text-muted text-sm">{{ post.date }}</p>              </div>              <p>                {{ post.content }}              </p>              <div class="pad-ver">                <textarea                  #comment                  class="form-control"                  rows="2"                  placeholder="Comment"                ></textarea>                <div class="mar-top clearfix">                  <button                    id="commentButton"                    (click)="writeComment(post.id, comment.value)"                    class="btn btn-sm btn-primary pull-right"                    type="submit"                  >                    <i class="fa fa-pencil fa-fw"></i> Comment                  </button>                  <button                    (click)="delete(post.id, post.username)"                    class="btn btn-sm btn-danger pull-right"                    type="submit"                  >                    <i class="fa fa-trash"></i> Delete                  </button>                </div>              </div>            </div>            <hr />            <div *ngFor="let item of comments.get(post.id)">              <div>                <div class="media-block">                  <a class="media-left" href="{{profileUrl + \'/\' + item.username}}"                    ><img                      class="img-circle img-sm"                      alt="Profile Picture"                      src="https://bootdey.com/img/Content/avatar/avatar2.png"                  /></a>                  <div class="media-body">                    <div class="mar-btm">                      <a                        href="{{profileUrl + \'/\' + item.username}}"                        class="btn-link text-semibold media-heading box-inline"                        >{{ item.username }}</a                      >                      <p class="text-muted text-sm">{{ item.date }}</p>                    </div>                    <p>                      {{ item.content }}                    </p>                    <hr />                  </div>                </div>              </div>            </div>          </div>        </div>      </div>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FeedComponent', 'selector': 'app-feed'},{'name': 'FriendComponent', 'selector': 'app-friend'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavMenuComponent', 'selector': 'app-nav-menu'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'UsersComponent', 'selector': 'app-users'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'FeedComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'FeedComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -37,7 +37,7 @@ export class RegisterComponent implements OnInit {
 
     this.http.post(this.url, data).subscribe((result) => {
       console.log(result);
-      this.router.navigate(["/user-data"]);
+      this.router.navigate(["/login"]);
     });
   }
 

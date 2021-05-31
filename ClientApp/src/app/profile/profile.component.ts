@@ -26,7 +26,7 @@ export class ProfileComponent implements OnInit {
     this.isLogged = this.burritoService.getLoggedInfo();
     this.username = this.route.snapshot.paramMap.get('username');
     
-    console.log(`logged = ${this.isLogged}`);
+    console.log(`logged = ${this.isLogged} ${this.burritoService.getUsername()}`);
     console.log(`name = ${this.username}`);
 
     http.get<User>(baseUrl + `api/user/${this.username}`).subscribe(result => {
@@ -35,7 +35,7 @@ export class ProfileComponent implements OnInit {
 
     http.get<Friend[]>(baseUrl + `api/friend/${this.username}`).subscribe(result => {
       this.friends = result;
-    });
+    }, error => console.log("Could not retrieve the friends"));
   }
 
   ngOnInit() {

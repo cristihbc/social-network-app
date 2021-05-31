@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormControl, FormGroup } from '@angular/forms';
 import { BurritoService } from '../burrito.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -15,6 +16,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private http: HttpClient, 
     private burritoService: BurritoService,
+    private router: Router,
     @Inject('BASE_URL') baseUrl: string
     ) { 
     this.form = new FormGroup({
@@ -41,12 +43,13 @@ export class LoginComponent implements OnInit {
     this.http.get<User[]>(this.url).subscribe(result => {
       if (result && !this.burritoService.getLoggedInfo()) {
         result.forEach(it => {
-          console.log(`fetched user = ${it.username}`);
-
           if ((it.username === user["username"]) && (it.password === user["password"])) {
             this.burritoService.setLogInfo(true);
+            this.burritoService.setUsername(it.username);
             
-            localStorage.setItem(this.burritoService.getLoggedTag(), `${it.username}:${it.password}`);
+            localStorage.setItem("logged", it.username);
+            this.router.navigate(["/feed"]);
+            // localStorage.setItem(this.burritoService.getLoggedTag(), `${it.username}:${it.password}`);
           }
         });
       }

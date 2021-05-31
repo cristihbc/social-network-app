@@ -1,4 +1,20 @@
-﻿using Models;
+﻿/**************************************************************************
+ *                                                                        *
+ *  File:        AbstractFactory.cs                                       *
+ *  Copyright:   (c) 2021, Balan Alexandru-Eduard                         *
+ *  E-mail:      edibalan59@gmail.com                                     *
+ *  Description: The abstract factory design pattern.                     *
+ *                                                                        *
+ *  This program is free software; you can redistribute it and/or modify  *
+ *  it under the terms of the GNU General Public License as published by  *
+ *  the Free Software Foundation. This program is distributed in the      *
+ *  hope that it will be useful, but WITHOUT ANY WARRANTY; without even   *
+ *  the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR   *
+ *  PURPOSE. See the GNU General Public License for more details.         *
+ *                                                                        *
+ **************************************************************************/
+
+using Models;
 
 namespace Commons
 {

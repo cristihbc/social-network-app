@@ -51,14 +51,6 @@ namespace Services
             _posts.Add(post.Id, post);
 
             return true;
-            //if (!Exists(post.Id))
-            //{
-            //    post.Date = DateTime.Now.ToString("HH:mm:ss dd/MM/yyyy");
-            //    _posts.Add(post.Id, post);
-            //    return true;
-            //}
-
-            //return false;
         }
 
         /// <summary>

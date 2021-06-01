@@ -1,8 +1,13 @@
 # social-network-app
 
-<h2>The app's architecture (might be changed in the future)</h2>
+<h2>The app's architecture</h2>
 <img src="https://raw.githubusercontent.com/alexcogojocaru/social-network-app/master/res/app-architecture.png" alt="api-architecture">
 
+<h2>Classes UML Diagram</h2>
+<img src="https://raw.githubusercontent.com/alexcogojocaru/social-network-app/master/res/socialapp-classes.png" alt="api-architecture">
+
+<h2>The app's workflow</h2>
+<img src="https://raw.githubusercontent.com/alexcogojocaru/social-network-app/master/res/socialapp-flow.png" alt="api-architecture">
 
 
 ## Building the application with Docker

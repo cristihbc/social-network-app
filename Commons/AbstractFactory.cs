@@ -31,5 +31,4 @@ namespace Commons
         /// <returns>a new FriendEntity with the close factor filled</returns>
         public abstract FriendEntity GetFriend(string IsClose , FriendEntity data);
     }
-
 }

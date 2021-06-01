@@ -23,7 +23,7 @@ namespace Services
 {
     public class PhotoService : IPhoto, IGenericService
     {
-        private static Dictionary<uint, PhotoEntity> _Photos = new Dictionary<uint, PhotoEntity>();
+        private static Dictionary<uint, PhotoEntity> _photos = new Dictionary<uint, PhotoEntity>();
 
         /// <summary>
         /// Creates a new photo
@@ -39,7 +39,7 @@ namespace Services
             if (!Exists(photo.Id))
             {
                 photo.Date = DateTime.Now.ToString("HH:mm:ss dd/MM/yyyy");
-                _Photos.Add(photo.Id, photo);
+                _photos.Add(photo.Id, photo);
                 return true;
             }
 
@@ -56,7 +56,7 @@ namespace Services
         {
             if (HasRights(Photoid, username))
             {
-                _Photos.Remove(Photoid);
+                _photos.Remove(Photoid);
                 return true;
             }
 
@@ -75,8 +75,8 @@ namespace Services
         {
             if (HasRights(id, username))
             {
-                _Photos[id].Description = description;
-                _Photos[id].Date = DateTime.Now.ToString("HH:mm:ss dd/MM/yyyy");
+                _photos[id].Description = description;
+                _photos[id].Date = DateTime.Now.ToString("HH:mm:ss dd/MM/yyyy");
                 return true;
             }
 
@@ -90,7 +90,7 @@ namespace Services
         /// <returns>true if it exists, false otherwise</returns>
         public bool Exists(uint id)
         {
-            return _Photos.ContainsKey(id);
+            return _photos.ContainsKey(id);
         }
 
         /// <summary>
@@ -100,7 +100,7 @@ namespace Services
         /// <returns>the photo or null if it doesn't exist</returns>
         public PhotoEntity GetPhoto(uint id)
         {
-            return Exists(id) ? _Photos[id] : null;
+            return Exists(id) ? _photos[id] : null;
         }
 
         /// <summary>
@@ -109,7 +109,7 @@ namespace Services
         /// <returns>a list with PhotoEntity objects</returns>
         public List<PhotoEntity> GetPhotos()
         {
-            return _Photos.Values.ToList();
+            return _photos.Values.ToList();
         }
 
         /// <summary>
@@ -120,7 +120,7 @@ namespace Services
         /// <returns>true if the user has rights, false otherwise</returns>
         public bool HasRights(uint id, string username)
         {
-            return Exists(id) && _Photos[id].Username.Equals(username);
+            return Exists(id) && _photos[id].Username.Equals(username);
         }
 
         /// <summary>
@@ -128,7 +128,7 @@ namespace Services
         /// </summary>
         public void PurgeData()
         {
-            _Photos.Clear();
+            _photos.Clear();
         }
     }
 }

@@ -34,7 +34,7 @@ namespace Controllers
         /// <summary>
         /// The factory needed to create a friend
         /// </summary>
-        private static AbstractFactory factoryBuilder = FactoryBuilder.GetFactory("friend");
+        private static AbstractFactory _factoryBuilder = FactoryBuilder.GetFactory("friend");
 
         /// <summary>
         /// The service that fetches all the friend-user relationships
@@ -107,7 +107,7 @@ namespace Controllers
             try
             {
                 string isClose = (friend.IsClose) ? "close" : "not close";
-                factoryFriend = factoryBuilder.GetFriend(isClose, friend);
+                factoryFriend = _factoryBuilder.GetFriend(isClose, friend);
                 _friendService.CreateFriend(username, factoryFriend);
             }
             catch(Exception e)

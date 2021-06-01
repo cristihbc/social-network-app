@@ -22,18 +22,10 @@ using System;
 
 namespace Services
 {
-    public class CommentService : AbstractService, IComment, IGenericService
+    public class CommentService : IComment, IGenericService
     {
         private static Dictionary<uint, CommentEntity> _comments = new Dictionary<uint, CommentEntity>();
         private static uint index = 1;
-
-        /// <summary>
-        /// Constructor for the class, to inherit the database connector
-        /// </summary>
-        public CommentService() : base()
-        {
-            
-        }
 
         /// <summary>
         /// Fetches the comments by an unique identifier

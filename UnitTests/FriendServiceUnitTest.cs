@@ -44,5 +44,23 @@ namespace UnitTests
             // Assert
             Assert.AreEqual(expected, friendsList);
         }
+
+        [TestMethod]
+        public void CreateFriend()
+        {
+            // Arrange
+            FriendEntity friend = new FriendEntity
+            {
+                Username = "test",
+                IsClose = true
+            };
+
+            // Act
+            friendService.CreateFriend("alex", friend);
+            FriendEntity rel = friendService.GetFriendship("alex", "test");
+
+            // Assert
+            Assert.AreNotEqual(rel, null);
+        }
     }
 }

@@ -26,13 +26,13 @@ namespace Controllers
     [Route("api/[controller]")]
     public class PhotoController : ControllerBase
     {
-        private static IPhoto _PhotosService = new PhotoService();
+        private static IPhoto _photoService = new PhotoService();
         private static IUser _userService = new UserService();
 
         [HttpGet]
         public IActionResult GetPhotos()
         {
-            List<PhotoEntity> photos = _PhotosService.GetPhotos();
+            List<PhotoEntity> photos = _photoService.GetPhotos();
 
             return (photos.Count != 0) ? Ok(photos) : NoContent();
         }
@@ -40,7 +40,7 @@ namespace Controllers
         [HttpGet("{photoID}")]
         public IActionResult GetPhoto(uint id)
         {
-            PhotoEntity photo = _PhotosService.GetPhoto(id);
+            PhotoEntity photo = _photoService.GetPhoto(id);
 
             return (photo != null) ? Ok(photo) : NotFound();
         }
@@ -53,7 +53,7 @@ namespace Controllers
                 return BadRequest();
             }
 
-            _PhotosService.CreatePhoto(photo);
+            _photoService.CreatePhoto(photo);
             return CreatedAtAction(nameof(GetPhoto), new { photo = photo }, photo);
         }
 
@@ -65,13 +65,13 @@ namespace Controllers
                 return BadRequest();
             }
 
-            return _PhotosService.EditPhoto(id, photo.Username, photo.Description) ? Ok() : NotFound();
+            return _photoService.EditPhoto(id, photo.Username, photo.Description) ? Ok() : NotFound();
         }
 
         [HttpDelete]
         public IActionResult DeletePhoto(uint id, string username)
         {
-            if (_PhotosService.DeletePhoto(id, username))
+            if (_photoService.DeletePhoto(id, username))
             {
                 return Ok();
             }

@@ -7,17 +7,17 @@ FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 RUN curl -sL https://deb.nodesource.com/setup_10.x |  bash -
 RUN apt-get install -y nodejs
 WORKDIR /src
-COPY ["SocialApp.csproj", ""]
-RUN dotnet restore "./SocialApp.csproj"
+COPY ["haidaufamily.csproj", ""]
+RUN dotnet restore "./haidaufamily.csproj"
 COPY . .
 WORKDIR "/src/."
-RUN dotnet build "SocialApp.csproj" -c Release -o /app/build
+RUN dotnet build "haidaufamily.csproj" -c Release -o /app/build
 
-RUN dotnet publish "SocialApp.csproj" -c Release -o /app/publish
+RUN dotnet publish "haidaufamily.csproj" -c Release -o /app/publish
 
 FROM mcr.microsoft.com/dotnet/aspnet:5.0 
 WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 COPY --from=build /app/publish .
-CMD ASPNETCORE_URLS=http://*:$PORT dotnet SocialApp.dll
+CMD ASPNETCORE_URLS=http://*:$PORT dotnet haidaufamily.dll

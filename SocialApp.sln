@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31019.35
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SocialApp", "SocialApp.csproj", "{DABF1DAF-7B4F-4F7E-8873-861AF4514EF4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "haidaufamily", "haidaufamily.csproj", "{DABF1DAF-7B4F-4F7E-8873-861AF4514EF4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interfaces", "Interfaces\Interfaces.csproj", "{5A1350DA-7D19-430E-9467-653510948F76}"
 EndProject

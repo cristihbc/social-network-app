@@ -1,11 +1,11 @@
 {
-  "name": "socialapp",
+  "name": "haidaufamily",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build:ssr": "ng run SocialApp:server:dev",
+    "build:ssr": "ng run haidaufamily:server:dev",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

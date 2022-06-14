@@ -9,11 +9,11 @@ if ( $null -eq $args[0] ) {
     Write-Output "Starting docker build..."
     Start-Sleep -s 1
 
-    docker build -t socialapp .
+    docker build -t haidaufamily .
     Write-Output "Finished the build..." 
 }
 
 Write-Output "Running on port 5001"
-docker run -p 5001:5001 -e PORT=5001 -d socialapp
+docker run -p 5001:5001 -e PORT=5001 -d haidaufamily
 
 Write-Output "Deployed the app..."

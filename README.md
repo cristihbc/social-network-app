@@ -1,5 +1,6 @@
 # social-network-app
 
+
 <h2>The app's architecture</h2>
 <img src="https://raw.githubusercontent.com/alexcogojocaru/social-network-app/master/res/app-architecture.png" alt="api-architecture">
 
